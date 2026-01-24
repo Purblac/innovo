@@ -106,8 +106,8 @@
         }
         
         .navbar:not(.scrolled) .nav-cta {
-            background: #fff;
-            color: #0f172a;
+            background: #0f172a;
+            color: #fff;
         }
         
         .navbar.scrolled .nav-cta {
@@ -183,7 +183,7 @@
             position: absolute;
             inset: 0;
             opacity: 0.2;
-            background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80');
+            background-image: url('https://parkcityholdings.com.my/parklife/wp-content/uploads/2022/07/1-2-scaled.webp');
             background-size: cover;
             background-position: center;
         }
@@ -767,10 +767,29 @@
             margin-bottom: 48px;
         }
         
+        @media (max-width: 640px) {
+            .chemicals-header {
+                margin-bottom: 32px;
+            }
+        }
+        
         .chemicals-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 16px;
+        }
+        
+        @media (max-width: 1024px) {
+            .chemicals-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .chemicals-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
         }
         
         .chemical-item {
@@ -778,6 +797,12 @@
             background: #fff;
             border: 1px solid #f1f5f9;
             transition: all 0.3s;
+        }
+        
+        @media (max-width: 640px) {
+            .chemical-item {
+                padding: 16px;
+            }
         }
         
         .chemical-item:hover {
@@ -799,6 +824,12 @@
             width: 18px;
             height: 18px;
             stroke: #1d4ed8;
+        }
+        
+        @media (max-width: 640px) {
+            .chemical-item h4 {
+                font-size: 15px;
+            }
         }
         
         .chemical-item h4 {
@@ -1161,9 +1192,7 @@
             </a>
             <div class="nav-links">
                 <a href="#about">About</a>
-                <a href="#values">Values</a>
                 <a href="#services">Services</a>
-                <a href="#divisions">Divisions</a>
                 <a href="#contact" class="nav-cta">Get in Touch</a>
             </div>
             <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
@@ -1177,9 +1206,7 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobile-menu">
         <a href="#about" onclick="closeMobileMenu()">About</a>
-        <a href="#values" onclick="closeMobileMenu()">Values</a>
         <a href="#services" onclick="closeMobileMenu()">Services</a>
-        <a href="#divisions" onclick="closeMobileMenu()">Divisions</a>
         <a href="#contact" class="mobile-cta" onclick="closeMobileMenu()">Get in Touch</a>
     </div>
 
@@ -1609,7 +1636,7 @@
                             </div>
                             <div>
                                 <label>Phone</label>
-                                <p>+6012-877 4722 +6014-374 5759</p>
+                                <p>+6012-877 4722 , +6014-374 5759</p>
                             </div>
                         </div>
                         <div class="contact-info-item">
@@ -1618,7 +1645,7 @@
                             </div>
                             <div>
                                 <label>Email</label>
-                                <p>innovo.gr.corp@gmail.com</p>
+                                <p><a href="mailto:innovo.gr.corp@gmail.com">innovo.gr.corp@gmail.com</a></p>
                             </div>
                         </div>
                     </div>
