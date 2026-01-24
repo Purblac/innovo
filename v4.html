@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovo Group - Industrial, Agricultural & Chemical Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #1e293b;
+            line-height: 1.6;
+            background: #fff;
+        }
+        /* Navbar */
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0 24px;
+            transition: all 0.5s ease;
+        }
+        
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .logo-light {
+            font-weight: 300;
+        }
+        
+        .logo-bold {
+            font-weight: 700;
+        }
+        
+        .navbar:not(.scrolled) .logo {
+            color: #fff;
+        }
+        
+        .navbar.scrolled .logo {
+            color: #0f172a;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+        
+        .navbar:not(.scrolled) .nav-links a {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .navbar.scrolled .nav-links a {
+            color: #475569;
+        }
+        
+        .nav-cta {
+            padding: 10px 24px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .navbar:not(.scrolled) .nav-cta {
+            background: #fff;
+            color: #0f172a;
+        }
+        
+        .navbar.scrolled .nav-cta {
+            background: #0f172a;
+            color: #fff;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+        
+        .mobile-menu-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .navbar:not(.scrolled) .mobile-menu-btn svg {
+            stroke: #fff;
+        }
+        
+        .navbar.scrolled .mobile-menu-btn svg {
+            stroke: #0f172a;
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: #fff;
+            padding: 96px 24px 24px;
+            z-index: 999;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        .mobile-menu a {
+            display: block;
+            padding: 16px 0;
+            font-size: 20px;
+            font-weight: 500;
+            color: #0f172a;
+            text-decoration: none;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        
+        .mobile-menu .mobile-cta {
+            display: block;
+            margin-top: 24px;
+            padding: 16px;
+            background: #0f172a;
+            color: #fff;
+            text-align: center;
+            border: none;
+        }
+        /* Hero */
+        
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: #0f172a;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            opacity: 0.2;
+            background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, #0f172a, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.8));
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 128px 24px;
+        }
+        
+        .hero-content>div {
+            max-width: 768px;
+        }
+        
+        .hero-label {
+            color: #94a3b8;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+        
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 72px);
+            font-weight: 300;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+        
+        .hero h1 span {
+            font-weight: 700;
+            display: block;
+        }
+        
+        .hero-tagline {
+            font-size: clamp(18px, 3vw, 24px);
+            color: #cbd5e1;
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+        
+        .hero-desc {
+            font-size: 18px;
+            color: #94a3b8;
+            margin-bottom: 40px;
+            max-width: 640px;
+        }
+        
+        .hero-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+        
+        .hero-highlights div {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #cbd5e1;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .hero-highlights svg {
+            width: 18px;
+            height: 18px;
+            stroke: #64748b;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: #fff;
+            color: #0f172a;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background: #f1f5f9;
+        }
+        
+        .btn-secondary {
+            padding: 16px 32px;
+            border: 1px solid #475569;
+            color: #fff;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        /* Section Styles */
+        
+        .section {
+            padding: 128px 24px;
+        }
+        
+        .section-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .section-label {
+            color: #94a3b8;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        
+        .section-title {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 300;
+            color: #0f172a;
+            line-height: 1.2;
+        }
+        
+        .section-title span {
+            font-weight: 700;
+            display: block;
+        }
+        /* About */
+        
+        .about {
+            background: #fff;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+        
+        @media (min-width: 1024px) {
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .about-content .section-label {
+            text-align: left;
+        }
+        
+        .about-content .section-title {
+            text-align: left;
+            margin-bottom: 32px;
+        }
+        
+        .about-text {
+            color: #475569;
+            margin-bottom: 24px;
+        }
+        
+        .industries-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .industry-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: #f8fafc;
+            transition: background 0.3s;
+        }
+        
+        .industry-item:hover {
+            background: #f1f5f9;
+        }
+        
+        .industry-icon {
+            width: 48px;
+            height: 48px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .industry-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: #475569;
+        }
+        
+        .industry-item span {
+            font-weight: 500;
+            color: #1e293b;
+        }
+        /* Values */
+        
+        .values {
+            background: #0f172a;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .values .section-label {
+            color: #64748b;
+        }
+        
+        .values .section-title {
+            color: #fff;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+        
+        .value-card {
+            padding: 40px;
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(71, 85, 105, 0.5);
+            transition: border-color 0.5s;
+        }
+        
+        .value-card:hover {
+            border-color: #64748b;
+        }
+        
+        .value-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(71, 85, 105, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 32px;
+            transition: background 0.5s;
+        }
+        
+        .value-card:hover .value-icon {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .value-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: #cbd5e1;
+        }
+        
+        .value-card h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        
+        .value-card p {
+            color: #94a3b8;
+        }
+        /* Philosophy */
+        
+        .philosophy {
+            background: #f8fafc;
+        }
+        
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 48px;
+        }
+        
+        .philosophy-item {
+            text-align: center;
+        }
+        
+        .philosophy-icon {
+            width: 80px;
+            height: 80px;
+            background: #fff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 32px;
+        }
+        
+        .philosophy-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: #475569;
+        }
+        
+        .philosophy-item h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 16px;
+        }
+        
+        .philosophy-item p {
+            color: #475569;
+        }
+        /* Services Overview */
+        
+        .services {
+            background: #fff;
+        }
+        
+        .services .section-desc {
+            color: #475569;
+            font-size: 18px;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+        
+        .service-card {
+            padding: 32px;
+            background: #f8fafc;
+            border: 1px solid transparent;
+            transition: all 0.5s;
+            cursor: pointer;
+        }
+        
+        .service-card:hover {
+            background: #fff;
+            border-color: #e2e8f0;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+        
+        .service-icon svg {
+            width: 26px;
+            height: 26px;
+        }
+        
+        .service-icon.agro {
+            background: #ecfdf5;
+        }
+        
+        .service-icon.agro svg {
+            stroke: #047857;
+        }
+        
+        .service-icon.chemicals {
+            background: #eff6ff;
+        }
+        
+        .service-icon.chemicals svg {
+            stroke: #1d4ed8;
+        }
+        
+        .service-icon.lab {
+            background: #faf5ff;
+        }
+        
+        .service-icon.lab svg {
+            stroke: #7c3aed;
+        }
+        
+        .service-icon.logistics {
+            background: #fffbeb;
+        }
+        
+        .service-icon.logistics svg {
+            stroke: #d97706;
+        }
+        
+        .service-code {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            color: #94a3b8;
+            margin-bottom: 8px;
+        }
+        
+        .service-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+        
+        .service-card p {
+            font-size: 14px;
+            color: #475569;
+        }
+        /* Divisions */
+        
+        .division {
+            padding: 96px 24px;
+        }
+        
+        .division-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        
+        .division-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+        
+        @media (min-width: 1024px) {
+            .division-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .division-label {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            margin-bottom: 12px;
+        }
+        
+        .division-label.agro {
+            color: #059669;
+        }
+        
+        .division-label.chemicals {
+            color: #2563eb;
+        }
+        
+        .division-label.lab {
+            color: #7c3aed;
+        }
+        
+        .division-label.logistics {
+            color: #d97706;
+        }
+        
+        .division-title {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 300;
+            color: #0f172a;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+        
+        .division-title span {
+            font-weight: 700;
+            display: block;
+        }
+        
+        .division-desc {
+            color: #475569;
+            margin-bottom: 32px;
+        }
+        
+        .division-features {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .feature-icon svg {
+            width: 18px;
+            height: 18px;
+        }
+        
+        .feature-icon.agro {
+            background: #ecfdf5;
+        }
+        
+        .feature-icon.agro svg {
+            stroke: #047857;
+        }
+        
+        .feature-icon.lab {
+            background: #faf5ff;
+        }
+        
+        .feature-icon.lab svg {
+            stroke: #7c3aed;
+        }
+        
+        .feature-item span {
+            color: #475569;
+        }
+        
+        .division-image {
+            position: relative;
+        }
+        
+        .division-image img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+        }
+        
+        .division-image-accent {
+            position: absolute;
+            width: 96px;
+            height: 96px;
+            bottom: -24px;
+        }
+        
+        .division-image-accent.left {
+            left: -24px;
+        }
+        
+        .division-image-accent.right {
+            right: -24px;
+        }
+        
+        .division-image-accent.agro {
+            background: #059669;
+        }
+        
+        .division-image-accent.chemicals {
+            background: #2563eb;
+        }
+        
+        .division-image-accent.lab {
+            background: #7c3aed;
+        }
+        
+        .division-image-accent.logistics {
+            background: #f59e0b;
+        }
+        /* Chemicals Grid */
+        
+        .chemicals-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        
+        .chemicals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+        
+        .chemical-item {
+            padding: 24px;
+            background: #fff;
+            border: 1px solid #f1f5f9;
+            transition: all 0.3s;
+        }
+        
+        .chemical-item:hover {
+            border-color: #e2e8f0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .chemical-icon {
+            width: 40px;
+            height: 40px;
+            background: #eff6ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+        
+        .chemical-icon svg {
+            width: 18px;
+            height: 18px;
+            stroke: #1d4ed8;
+        }
+        
+        .chemical-item h4 {
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 4px;
+        }
+        
+        .chemical-item p {
+            font-size: 14px;
+            color: #64748b;
+        }
+        /* Lab Features Grid */
+        
+        .lab-features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        
+        .lab-feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: #faf5ff;
+        }
+        
+        .lab-feature svg {
+            width: 18px;
+            height: 18px;
+            stroke: #7c3aed;
+        }
+        
+        .lab-feature span {
+            font-size: 14px;
+            color: #475569;
+        }
+        /* Logistics Locations */
+        
+        .locations-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+        
+        .location-tag {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: #fffbeb;
+        }
+        
+        .location-tag svg {
+            width: 14px;
+            height: 14px;
+            stroke: #d97706;
+        }
+        
+        .location-tag span {
+            font-size: 14px;
+            font-weight: 500;
+            color: #475569;
+        }
+        
+        .logistics-features {
+            display: flex;
+            gap: 32px;
+        }
+        
+        .logistics-feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logistics-feature svg {
+            width: 20px;
+            height: 20px;
+            stroke: #d97706;
+        }
+        
+        .logistics-feature span {
+            font-size: 14px;
+            color: #475569;
+        }
+        /* Contact */
+        
+        .contact {
+            background: #fff;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 64px;
+        }
+        
+        @media (min-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .contact-info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+        
+        .contact-info-item {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .contact-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: #475569;
+        }
+        
+        .contact-info-item label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: #94a3b8;
+            margin-bottom: 4px;
+        }
+        
+        .contact-info-item p {
+            color: #1e293b;
+            white-space: pre-line;
+        }
+        
+        .management-section {
+            border-top: 1px solid #f1f5f9;
+            padding-top: 32px;
+        }
+        
+        .management-section h4 {
+            font-size: 14px;
+            font-weight: 500;
+            color: #94a3b8;
+            margin-bottom: 24px;
+        }
+        
+        .management-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .management-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .management-avatar {
+            width: 40px;
+            height: 40px;
+            background: #0f172a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .management-avatar svg {
+            width: 16px;
+            height: 16px;
+            stroke: #fff;
+        }
+        
+        .management-item strong {
+            display: block;
+            color: #0f172a;
+        }
+        
+        .management-item span {
+            font-size: 14px;
+            color: #64748b;
+        }
+        /* Contact Form */
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+        
+        @media (min-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: #475569;
+            margin-bottom: 8px;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #e2e8f0;
+            font-family: inherit;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #94a3b8;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: none;
+        }
+        
+        .form-submit {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 16px 32px;
+            background: #0f172a;
+            color: #fff;
+            font-family: inherit;
+            font-size: 16px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .form-submit:hover {
+            background: #1e293b;
+        }
+        
+        .form-submit svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.3s;
+        }
+        
+        .form-submit:hover svg {
+            transform: translateX(4px);
+        }
+        /* Footer */
+        
+        .footer {
+            background: #0f172a;
+            padding: 48px 24px;
+        }
+        
+        .footer-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+            text-align: center;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-inner {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+        }
+        
+        .footer-logo {
+            font-size: 20px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        
+        .footer-tagline {
+            font-size: 14px;
+            color: #64748b;
+        }
+        
+        .footer-copyright {
+            font-size: 14px;
+            color: #64748b;
+        }
+        
+        .footer-location {
+            font-size: 12px;
+            color: #475569;
+            margin-top: 4px;
+        }
+        /* Responsive */
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .division-image-accent {
+                display: none;
+            }
+            .logistics-features {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+        /* Animations */
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="#" class="logo" onclick="scrollToTop(event)">
+                <span class="logo-light">Innovo</span><span class="logo-bold">Group</span>
+            </a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#values">Values</a>
+                <a href="#services">Services</a>
+                <a href="#divisions">Divisions</a>
+                <a href="#contact" class="nav-cta">Get in Touch</a>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <svg id="menu-icon" fill="none" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="#about" onclick="closeMobileMenu()">About</a>
+        <a href="#values" onclick="closeMobileMenu()">Values</a>
+        <a href="#services" onclick="closeMobileMenu()">Services</a>
+        <a href="#divisions" onclick="closeMobileMenu()">Divisions</a>
+        <a href="#contact" class="mobile-cta" onclick="closeMobileMenu()">Get in Touch</a>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div>
+                <p class="hero-label">Group Corporate Profile</p>
+                <h1>Innovo<span>Group</span></h1>
+                <p class="hero-tagline">Industrial, Agricultural & Chemical Solutions You Can Trust</p>
+                <p class="hero-desc">We are a dynamic Malaysian-based group delivering high-quality agricultural equipment, industrial chemicals, laboratory instruments, and cross-border logistics across East Malaysia and Brunei.</p>
+                <div class="hero-highlights">
+                    <div>
+                        <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <span>Fast decisions</span>
+                    </div>
+                    <div>
+                        <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <span>Market-driven solutions</span>
+                    </div>
+                    <div>
+                        <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <span>Long-term partnerships</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-primary">
+                        Contact Us
+                        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+                    </a>
+                    <a href="#services" class="btn-secondary">Explore Our Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="section about" id="about">
+        <div class="section-inner">
+            <div class="about-grid">
+                <div class="about-content fade-in">
+                    <p class="section-label">About Us</p>
+                    <h2 class="section-title">Who We<span>Are</span></h2>
+                    <p class="about-text">Founded in 2019, Innovo Group began as an agricultural equipment and chemical supply company. Today, we are a diversified solutions provider serving industrial manufacturers and distributors across multiple sectors.</p>
+                    <p class="about-text">Our team consists of experienced, motivated professionals who make fast, informed decisions based on deep market knowledge and technical expertise.</p>
+                </div>
+                <div class="fade-in">
+                    <p style="font-size: 14px; font-weight: 500; color: #0f172a; margin-bottom: 24px;">We serve industries including:</p>
+                    <div class="industries-list">
+                        <div class="industry-item">
+                            <div class="industry-icon">
+                                <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg>
+                            </div>
+                            <span>Agriculture & Fertilizers</span>
+                        </div>
+                        <div class="industry-item">
+                            <div class="industry-icon">
+                                <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" /></svg>
+                            </div>
+                            <span>Food Manufacturing</span>
+                        </div>
+                        <div class="industry-item">
+                            <div class="industry-icon">
+                                <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" /></svg>
+                            </div>
+                            <span>Pharmaceutical & Lab Chemicals</span>
+                        </div>
+                        <div class="industry-item">
+                            <div class="industry-icon">
+                                <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5" /></svg>
+                            </div>
+                            <span>Industrial Water Treatment</span>
+                        </div>
+                        <div class="industry-item">
+                            <div class="industry-icon">
+                                <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" /></svg>
+                            </div>
+                            <span>Logistics & Supply Chain</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values -->
+    <section class="section values" id="values">
+        <div class="section-inner">
+            <div class="section-header fade-in">
+                <p class="section-label">Corporate Values</p>
+                <h2 class="section-title">Our Core<span>Values</span></h2>
+            </div>
+            <div class="values-grid">
+                <div class="value-card fade-in">
+                    <div class="value-icon">
+                        <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 002.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 012.916.52 6.003 6.003 0 01-5.395 4.972m0 0a6.726 6.726 0 01-2.749 1.35m0 0a6.772 6.772 0 01-3.044 0" /></svg>
+                    </div>
+                    <h3>Quality</h3>
+                    <p>We deliver world-class products at competitive prices without compromising standards.</p>
+                </div>
+                <div class="value-card fade-in">
+                    <div class="value-icon">
+                        <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>
+                    </div>
+                    <h3>Trustworthiness</h3>
+                    <p>We build credibility through transparency, reliability, and ethical business practices.</p>
+                </div>
+                <div class="value-card fade-in">
+                    <div class="value-icon">
+                        <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .415.336.75.75.75z" /></svg>
+                    </div>
+                    <h3>Commitment</h3>
+                    <p>We continuously strive to improve our solutions and exceed customer expectations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section class="section philosophy">
+        <div class="section-inner">
+            <div class="section-header fade-in">
+                <p class="section-label">Corporate Goals</p>
+                <h2 class="section-title">Our Business<span>Philosophy</span></h2>
+            </div>
+            <div class="philosophy-grid">
+                <div class="philosophy-item fade-in">
+                    <div class="philosophy-icon">
+                        <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" /></svg>
+                    </div>
+                    <h3>Customer-Centric Thinking</h3>
+                    <p>We deeply understand our customers' challenges and deliver practical, efficient solutions through research and insight.</p>
+                </div>
+                <div class="philosophy-item fade-in">
+                    <div class="philosophy-icon">
+                        <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
+                    </div>
+                    <h3>CAN-DO Culture</h3>
+                    <p>We approach every challenge with a proactive and results-driven mindset.</p>
+                </div>
+                <div class="philosophy-item fade-in">
+                    <div class="philosophy-icon">
+                        <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" /></svg>
+                    </div>
+                    <h3>Long-Term Partnerships</h3>
+                    <p>We prioritize sustainable relationships with customers, suppliers, and stakeholders.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="section services" id="services">
+        <div class="section-inner">
+            <div class="section-header fade-in">
+                <p class="section-label">Products & Services</p>
+                <h2 class="section-title">What We<span>Do</span></h2>
+                <p class="services .section-desc" style="color: #475569; font-size: 18px; max-width: 640px; margin: 24px auto 0;">We provide integrated solutions across four core divisions</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in" onclick="document.getElementById('divisions').scrollIntoView({behavior:'smooth'})">
+                    <div class="service-icon agro">
+                        <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg>
+                    </div>
+                    <p class="service-code">AGRO</p>
+                    <h3>IG Agro</h3>
+                    <p>Agricultural equipment, fertigation systems, hydroponics, greenhouse materials.</p>
+                </div>
+                <div class="service-card fade-in" onclick="document.getElementById('divisions').scrollIntoView({behavior:'smooth'})">
+                    <div class="service-icon chemicals">
+                        <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5" /></svg>
+                    </div>
+                    <p class="service-code">CHEMICALS</p>
+                    <h3>IG Chemicals</h3>
+                    <p>Industrial, pharmaceutical, food-grade, and specialty chemicals.</p>
+                </div>
+                <div class="service-card fade-in" onclick="document.getElementById('divisions').scrollIntoView({behavior:'smooth'})">
+                    <div class="service-icon lab">
+                        <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
+                    </div>
+                    <p class="service-code">LAB</p>
+                    <h3>IG Lab Instruments</h3>
+                    <p>Testing, measuring, and quality control instruments.</p>
+                </div>
+                <div class="service-card fade-in" onclick="document.getElementById('divisions').scrollIntoView({behavior:'smooth'})">
+                    <div class="service-icon logistics">
+                        <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" /></svg>
+                    </div>
+                    <p class="service-code">LOGISTICS</p>
+                    <h3>IG Logistics</h3>
+                    <p>Cross-border industrial and chemical goods delivery in East Malaysia & Brunei.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divisions -->
+    <div id="divisions">
+        <!-- Agro Division -->
+        <section class="division" style="background: #fff;">
+            <div class="division-inner">
+                <div class="division-grid">
+                    <div class="fade-in">
+                        <p class="division-label agro">IG AGRO</p>
+                        <h3 class="division-title">Agricultural<span>Solutions</span></h3>
+                        <p class="division-desc">We supply complete agriculture and greenhouse solutions designed to improve yield, efficiency, and reliability for modern agriculture.</p>
+                        <div class="division-features">
+                            <div class="feature-item">
+                                <div class="feature-icon agro">
+                                    <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg>
+                                </div>
+                                <span>Fertigation & hydroponic systems</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon agro">
+                                    <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg>
+                                </div>
+                                <span>HDPE / LDPE piping</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon agro">
+                                    <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                </div>
+                                <span>Digital timers, valves, pumps & drippers</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon agro">
+                                    <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" /></svg>
+                                </div>
+                                <span>Greenhouse accessories & filtration systems</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="division-image fade-in">
+                        <img src="https://images.unsplash.com/photo-1592838064575-70ed626d3a0e?w=800&q=80" alt="Agricultural Solutions">
+                        <div class="division-image-accent left agro"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chemicals Division -->
+        <section class="division" style="background: #f8fafc;">
+            <div class="division-inner">
+                <div class="chemicals-header fade-in">
+                    <p class="division-label chemicals">IG CHEMICALS</p>
+                    <h3 class="division-title" style="text-align: center;">Multi-Industry<span>Chemical Solutions</span></h3>
+                    <p class="division-desc" style="text-align: center; max-width: 640px; margin: 0 auto;">We supply high-quality chemicals with reliable logistics for diverse industries.</p>
+                </div>
+                <div class="chemicals-grid">
+                    <div class="chemical-item fade-in">
+                        <div class="chemical-icon">
+                            <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5" /></svg>
+                        </div>
+                        <h4>Laboratory & Reagents</h4>
+                        <p>ACS / AR / HPLC / Electronics grades</p>
+                    </div>
+                    <div class="chemical-item fade-in">
+                        <div class="chemical-icon">
+                            <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.87c1.355 0 2.697.055 4.024.165C17.155 8.51 18 9.473 18 10.608v2.513m-3-4.87v-1.5m-6 1.5v-1.5m12 9.75l-1.5.75a3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0L3 16.5m15-3.38a48.474 48.474 0 00-6-.37c-2.032 0-4.034.125-6 .37m12 0c.39.049.777.102 1.163.16 1.07.16 1.837 1.094 1.837 2.175v5.17c0 .62-.504 1.124-1.125 1.124H4.125A1.125 1.125 0 013 20.625v-5.17c0-1.08.768-2.014 1.837-2.174A47.78 47.78 0 016 13.12M12.265 3.11a.375.375 0 11-.53 0L12 2.845l.265.265zm-3 0a.375.375 0 11-.53 0L9 2.845l.265.265zm6 0a.375.375 0 11-.53 0L15 2.845l.265.265z" /></svg>
+                        </div>
+                        <h4>Food & Beverage</h4>
+                        <p>Ingredients, preservatives, flavors</p>
+                    </div>
+                    <div class="chemical-item fade-in">
+                        <div class="chemical-icon">
+                            <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg>
+                        </div>
+                        <h4>Agriculture</h4>
+                        <p>Fertilizers, herbicides, fungicides</p>
+                    </div>
+                    <div class="chemical-item fade-in">
+                        <div class="chemical-icon">
+                            <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg>
+                        </div>
+                        <h4>Water Treatment</h4>
+                        <p>Drinking water, wastewater, cooling</p>
+                    </div>
+                    <div class="chemical-item fade-in">
+                        <div class="chemical-icon">
+                            <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" /></svg>
+                        </div>
+                        <h4>Pharmaceuticals</h4>
+                        <p>APIs, excipients, vitamins</p>
+                    </div>
+                    <div class="chemical-item fade-in">
+                        <div class="chemical-icon">
+                            <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z" /></svg>
+                        </div>
+                        <h4>Electronics</h4>
+                        <p>High-purity acids, solvents</p>
+                    </div>
+                    <div class="chemical-item fade-in">
+                        <div class="chemical-icon">
+                            <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" /></svg>
+                        </div>
+                        <h4>Metal Treatment</h4>
+                        <p>Plating chemicals, nickel solutions</p>
+                    </div>
+                    <div class="chemical-item fade-in">
+                        <div class="chemical-icon">
+                            <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" /></svg>
+                        </div>
+                        <h4>Rubber & Plastics</h4>
+                        <p>Additives, stabilizers, pigments</p>
+                    </div>
+                    <div class="chemical-item fade-in">
+                        <div class="chemical-icon">
+                            <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" /></svg>
+                        </div>
+                        <h4>Personal Care</h4>
+                        <p>Surfactants, emulsifiers, fragrances</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lab Division -->
+        <section class="division" style="background: #fff;">
+            <div class="division-inner">
+                <div class="division-grid">
+                    <div class="division-image fade-in" style="order: 1;">
+                        <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800&q=80" alt="Lab Instruments">
+                        <div class="division-image-accent right lab"></div>
+                    </div>
+                    <div class="fade-in" style="order: 2;">
+                        <p class="division-label lab">IG LAB INSTRUMENTS</p>
+                        <h3 class="division-title">Professional Lab<span>Equipment</span></h3>
+                        <p class="division-desc">We supply professional laboratory testing and measuring equipment for quality control and research from trusted international brands.</p>
+                        <div class="lab-features-grid">
+                            <div class="lab-feature">
+                                <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5" /></svg>
+                                <span>Chemical analysis</span>
+                            </div>
+                            <div class="lab-feature">
+                                <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg>
+                                <span>Water testing</span>
+                            </div>
+                            <div class="lab-feature">
+                                <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg>
+                                <span>Environmental monitoring</span>
+                            </div>
+                            <div class="lab-feature">
+                                <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                <span>Industrial QA/QC</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Logistics Division -->
+        <section class="division" style="background: #f8fafc;">
+            <div class="division-inner">
+                <div class="division-grid">
+                    <div class="fade-in">
+                        <p class="division-label logistics">IG LOGISTICS</p>
+                        <h3 class="division-title">Cross-Border<span>Expertise</span></h3>
+                        <p class="division-desc">We specialize in handling industrial and chemical goods with reliable, compliant, and efficient logistics for your critical shipments.</p>
+                        <div class="locations-wrap">
+                            <div class="location-tag">
+                                <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
+                                <span>Kota Kinabalu</span>
+                            </div>
+                            <div class="location-tag">
+                                <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
+                                <span>Miri</span>
+                            </div>
+                            <div class="location-tag">
+                                <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
+                                <span>Bintulu</span>
+                            </div>
+                            <div class="location-tag">
+                                <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
+                                <span>Kuching</span>
+                            </div>
+                            <div class="location-tag">
+                                <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
+                                <span>Brunei</span>
+                            </div>
+                        </div>
+                        <div class="logistics-features">
+                            <div class="logistics-feature">
+                                <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" /></svg>
+                                <span>Reliable Delivery</span>
+                            </div>
+                            <div class="logistics-feature">
+                                <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>
+                                <span>Compliant Handling</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="division-image fade-in">
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80" alt="Logistics">
+                        <div class="division-image-accent left logistics"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact -->
+    <section class="section contact" id="contact">
+        <div class="section-inner">
+            <div class="section-header fade-in">
+                <p class="section-label">Contact</p>
+                <h2 class="section-title">Let's Work<span>Together</span></h2>
+            </div>
+            <div class="contact-grid">
+                <div class="fade-in">
+                    <div class="contact-info-list">
+                        <div class="contact-info-item">
+                            <div class="contact-icon">
+                                <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
+                            </div>
+                            <div>
+                                <label>Address</label>
+                                <p>No A-1-23A, Level 1, Block A Miri Times Square, ParkCity 98000 Miri, Sarawak</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-icon">
+                                <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+                            </div>
+                            <div>
+                                <label>Phone</label>
+                                <p>+6012-877 4722 +6014-374 5759</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-icon">
+                                <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
+                            </div>
+                            <div>
+                                <label>Email</label>
+                                <p>innovo.gr.corp@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="management-section">
+                        <h4>Management Contacts</h4>
+                        <div class="management-list">
+                            <div class="management-item">
+                                <div class="management-avatar">
+                                    <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
+                                </div>
+                                <div>
+                                    <strong>Mr Kumar</strong>
+                                    <span>Managing Director</span>
+                                </div>
+                            </div>
+                            <div class="management-item">
+                                <div class="management-avatar">
+                                    <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
+                                </div>
+                                <div>
+                                    <strong>Ms C Sharon E</strong>
+                                    <span>Sales & Marketing Manager</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <form class="contact-form" onsubmit="submitForm(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" id="name" placeholder="Your name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" id="email" placeholder="your@email.com" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Company</label>
+                            <input type="text" id="company" placeholder="Your company name">
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea id="message" placeholder="How can we help you?" required></textarea>
+                        </div>
+                        <button type="submit" class="form-submit">
+                            Send Message
+                            <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div>
+                <div class="footer-logo">
+                    <span style="font-weight: 300;">Innovo</span><span style="font-weight: 700;">Group</span>
+                </div>
+                <p class="footer-tagline">Industrial, Agricultural & Chemical Solutions</p>
+            </div>
+            <div>
+                <p class="footer-copyright">© 2026 Innovo Group. All rights reserved.</p>
+                <p class="footer-location">Miri, Sarawak, Malaysia</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.remove('active');
+        }
+
+        // Scroll to top
+        function scrollToTop(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Form submission
+        function submitForm(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const company = document.getElementById('company').value;
+            const message = document.getElementById('message').value;
+
+            const mailtoLink = 'mailto:innovo.gr.corp@gmail.com?subject=Inquiry from ' + encodeURIComponent(name) + '&body=' + encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nCompany: ' + company + '\n\nMessage:\n' + message);
+            window.location.href = mailtoLink;
+        }
+
+        // Scroll animations
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                const isVisible = rect.top < window.innerHeight - 100;
+                if (isVisible) {
+                    el.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', handleScrollAnimations);
+        window.addEventListener('load', handleScrollAnimations);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Innovo Group - Industrial, Agricultural & Chemical Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+         :root {
+            --primary: #0f2a44;
+            --secondary: #1f4f7a;
+            --accent: #3a86ff;
+            --light: #f5f8fc;
+            --dark: #0b1d2b;
+            --gray: #6b7b8c;
+            --card: #ffffff;
+            --radius: 14px;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+        
+        body {
+            font-family: Inter, Segoe UI, Tahoma, sans-serif;
+            line-height: 1.65;
+            color: var(--dark);
+            background: #fff
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 24px
+        }
+        
+        section {
+            padding: 90px 0
+        }
+        
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: var(--primary);
+            font-weight: 800
+        }
+        
+        h1 {
+            font-size: 3.3rem
+        }
+        
+        h2 {
+            text-align: center;
+            font-size: 2.4rem;
+            margin-bottom: 60px;
+            position: relative
+        }
+        
+        h2:after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -16px;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent)
+        }
+        
+        p {
+            font-size: 1.05rem;
+            color: var(--gray);
+            margin-bottom: 16px
+        }
+        
+        header {
+            position: sticky;
+            top: 0;
+            background: #fff;
+            z-index: 999;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05)
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 0
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary);
+            text-decoration: none
+        }
+        
+        .logo span {
+            color: var(--accent)
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent)
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            padding: 130px 0
+        }
+        
+        .hero h1 {
+            color: #fff
+        }
+        
+        .hero p {
+            color: rgba(255, 255, 255, .85);
+            font-size: 1.2rem
+        }
+        
+        .hero-content {
+            max-width: 780px
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            border-radius: 40px;
+            background: var(--accent);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            margin-right: 12px;
+            transition: .25s
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, .15)
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #fff;
+            color: #fff
+        }
+        
+        .btn-outline:hover {
+            background: #fff;
+            color: var(--primary)
+        }
+        
+        .about-content,
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center
+        }
+        
+        .division-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px
+        }
+        
+        .division-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto
+        }
+        
+        .industries {
+            background: var(--light);
+            padding: 32px;
+            border-radius: var(--radius);
+            border-left: 5px solid var(--accent)
+        }
+        
+        .values {
+            background: var(--light)
+        }
+        
+        .values-grid,
+        .goals-grid,
+        .services-grid,
+        .chemicals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px
+        }
+        
+        .value-card,
+        .goal-card,
+        .service-card,
+        .chemical-category {
+            background: var(--card);
+            padding: 34px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: .25s
+        }
+        
+        .value-card:hover,
+        .goal-card:hover,
+        .service-card:hover {
+            transform: translateY(-6px)
+        }
+        
+        .value-card i {
+            font-size: 2.6rem;
+            color: var(--accent);
+            margin-bottom: 18px
+        }
+        
+        .division-text ul {
+            list-style: none
+        }
+        
+        .division-text li {
+            padding: 8px 0;
+            color: var(--gray);
+            font-size: 1.05rem
+        }
+        
+        .division-text li:before {
+            content: "→ ";
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 12px
+        }
+        
+        .location {
+            background: var(--primary);
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 24px;
+            font-weight: 700
+        }
+        
+        .contact {
+            background: var(--primary);
+            color: #fff
+        }
+        
+        .contact h2,
+        .contact h3,
+        .contact p {
+            color: #fff
+        }
+        
+        .contact-detail i {
+            color: var(--accent)
+        }
+        
+        footer {
+            background: var(--dark);
+            color: #fff;
+            padding: 40px 0;
+            text-align: center
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 900
+        }
+        
+        .footer-logo span {
+            color: var(--accent)
+        }
+        
+        .contact-form {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+            padding: 50px;
+            border-radius: var(--radius);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1)
+        }
+        
+        #contactForm {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px
+        }
+        
+        #contactForm textarea {
+            grid-column: 1 / -1
+        }
+        
+        #contactForm .form-group:last-child {
+            grid-column: 1 / -1
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: #fff;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            opacity: 0.95
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.92);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: .3s ease;
+            color: var(--dark)
+        }
+        
+        .form-group input:hover,
+        .form-group textarea:hover {
+            border-color: rgba(255, 255, 255, 0.5);
+            background: #fff
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(58, 134, 255, 0.2);
+            transform: translateY(-2px)
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 160px;
+            font-family: inherit
+        }
+        
+        .form-group button {
+            width: 100%;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, var(--accent), #2563eb);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: .3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 10px 25px rgba(58, 134, 255, 0.3)
+        }
+        
+        .form-group button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(58, 134, 255, 0.4)
+        }
+        
+        .form-group button:active {
+            transform: translateY(-1px)
+        }
+        
+        @media(max-width:900px) {
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr
+            }
+            
+            .division-content {
+                flex-direction: column
+            }
+            
+            #contactForm {
+                grid-template-columns: 1fr
+            }
+            
+            h1 {
+                font-size: 2.4rem
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Innovo<span>Group</span></a>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#values">Values</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Innovo Group</h1>
+                <p>Industrial, Agricultural & Chemical Solutions You Can Trust</p>
+                <p>
+                    We are a dynamic Malaysian-based group delivering high-quality agricultural equipment, industrial chemicals, laboratory instruments, and cross-border logistics across East Malaysia and Brunei.
+                </p>
+                <div class="hero-btns">
+                    <a href="#contact" class="btn">Contact Us</a>
+                    <a href="#services" class="btn btn-outline">Explore Our Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Who We Are</h2>
+                    <p>
+                        Founded in 2019, Innovo Group began as an agricultural equipment and chemical supply company. Today, we are a diversified solutions provider serving industrial manufacturers and distributors across multiple sectors.
+                    </p>
+                    <p>
+                        Our team consists of experienced, motivated professionals who make fast, informed decisions based on deep market knowledge and technical expertise.
+                    </p>
+                    <ul>
+                        <li>Fast decisions</li>
+                        <li>Market-driven solutions</li>
+                        <li>Long-term partnerships</li>
+                    </ul>
+                </div>
+                <div class="industries">
+                    <h3>We serve industries including:</h3>
+                    <ul>
+                        <li>Agriculture & Fertilizers</li>
+                        <li>Food Manufacturing</li>
+                        <li>Pharmaceutical & Lab Chemicals</li>
+                        <li>Industrial Water Treatment</li>
+                        <li>Logistics & Supply Chain</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section id="values" class="values">
+        <div class="container">
+            <h2>Our Core Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Quality</h3>
+                    <p>
+                        We deliver world-class products at competitive prices without compromising standards.
+                    </p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Trustworthiness</h3>
+                    <p>
+                        We build credibility through transparency, reliability, and ethical business practices.
+                    </p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Commitment</h3>
+                    <p>
+                        We continuously strive to improve our solutions and exceed customer expectations.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Goals Section -->
+    <section class="goals">
+        <div class="container">
+            <h2>Our Business Philosophy</h2>
+            <div class="goals-grid">
+                <div class="goal-card">
+                    <h3>Customer-Centric Thinking</h3>
+                    <p>
+                        We deeply understand our customers' challenges and deliver practical, efficient solutions through research and insight.
+                    </p>
+                </div>
+                <div class="goal-card">
+                    <h3>CAN-DO Culture</h3>
+                    <p>
+                        We approach every challenge with a proactive and results-driven mindset.
+                    </p>
+                </div>
+                <div class="goal-card">
+                    <h3>Long-Term Partnerships</h3>
+                    <p>
+                        We prioritize sustainable relationships with customers, suppliers, and stakeholders.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>What We Do</h2>
+            <p>We provide integrated solutions across four core divisions:</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>AGRO</h3>
+                    <p>
+                        Agricultural equipment, fertigation systems, hydroponics, greenhouse materials.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <h3>CHEMICALS</h3>
+                    <p>
+                        Industrial, pharmaceutical, food-grade, and specialty chemicals.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <h3>LAB INSTRUMENTS</h3>
+                    <p>Testing, measuring, and quality control instruments.</p>
+                </div>
+                <div class="service-card">
+                    <h3>LOGISTICS</h3>
+                    <p>
+                        Cross-border industrial and chemical goods delivery in East Malaysia & Brunei.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agro Division -->
+    <section class="division">
+        <div class="container">
+            <div class="division-content">
+                <div class="division-text">
+                    <h2>IG Agro</h2>
+                    <p>
+                        We supply complete agriculture and greenhouse solutions including:
+                    </p>
+                    <ul>
+                        <li>Fertigation & hydroponic systems</li>
+                        <li>HDPE / LDPE piping</li>
+                        <li>Digital timers, valves, pumps & drippers</li>
+                        <li>Greenhouse accessories & filtration systems</li>
+                    </ul>
+                    <p>
+                        Designed to improve yield, efficiency, and reliability for modern agriculture.
+                    </p>
+                </div>
+                <div class="division-image">
+                    <!-- Image placeholder would go here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chemicals Division -->
+    <section class="division">
+        <div class="container">
+            <div class="division-content">
+                <div class="division-text">
+                    <h2>IG Chemicals — Multi-Industry Solutions</h2>
+                    <p>We supply high-quality chemicals with reliable logistics for:</p>
+                    <div class="chemicals-grid">
+                        <div class="chemical-category">
+                            <h4>Laboratory & Reagents</h4>
+                            <p>ACS / AR / HPLC / Electronics / Extra Pure grades</p>
+                        </div>
+                        <div class="chemical-category">
+                            <h4>Food & Beverage</h4>
+                            <p>
+                                Ingredients, preservatives, vitamins, flavors, stabilizers
+                            </p>
+                        </div>
+                        <div class="chemical-category">
+                            <h4>Agriculture</h4>
+                            <p>Fertilizers, trace elements, herbicides, fungicides</p>
+                        </div>
+                        <div class="chemical-category">
+                            <h4>Water Treatment</h4>
+                            <p>Drinking water, wastewater, cooling towers, filtration</p>
+                        </div>
+                        <div class="chemical-category">
+                            <h4>Pharmaceuticals</h4>
+                            <p>APIs, excipients, vitamins & minerals</p>
+                        </div>
+                        <div class="chemical-category">
+                            <h4>Electronics & Semiconductors</h4>
+                            <p>High-purity acids, solvents, dopants</p>
+                        </div>
+                        <div class="chemical-category">
+                            <h4>Metal & Surface Treatment</h4>
+                            <p>Plating chemicals, electroless nickel solutions</p>
+                        </div>
+                        <div class="chemical-category">
+                            <h4>Rubber & Plastics</h4>
+                            <p>Additives, stabilizers, pigments, processing aids</p>
+                        </div>
+                        <div class="chemical-category">
+                            <h4>Personal Care & Detergents</h4>
+                            <p>Surfactants, emulsifiers, fragrances, rheology modifiers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lab Instruments -->
+    <section class="division">
+        <div class="container">
+            <div class="division-content">
+                <div class="division-text">
+                    <h2>IG Lab Instruments</h2>
+                    <p>
+                        We supply professional laboratory testing and measuring equipment for quality control and research.
+                    </p>
+                    <p>Our portfolio includes trusted international brands for:</p>
+                    <ul>
+                        <li>Chemical analysis</li>
+                        <li>Water testing</li>
+                        <li>Environmental monitoring</li>
+                        <li>Industrial QA/QC</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logistics -->
+    <section class="division">
+        <div class="container">
+            <div class="division-content">
+                <div class="division-text">
+                    <h2>IG Logistics — Cross-Border Expertise</h2>
+                    <p>
+                        We specialize in handling industrial and chemical goods across:
+                    </p>
+                    <div class="logistics-locations">
+                        <span class="location">Kota Kinabalu</span>
+                        <span class="location">Miri</span>
+                        <span class="location">Bintulu</span>
+                        <span class="location">Kuching</span>
+                        <span class="location">Brunei</span>
+                    </div>
+                    <p>
+                        Reliable, compliant, and efficient logistics for your critical shipments.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Let's Work Together</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <strong>Address:</strong><br /> No A-1-23A, Level 1, Block A<br /> Miri Times Square, ParkCity<br /> 98000 Miri, Sarawak
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-phone"></i>
+                        <strong>Phone:</strong><br /> +6012-877 4722<br /> +6014-374 5759
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <strong>Email:</strong><br /> innovo.gr.corp@gmail.com
+                    </div>
+                    <div class="management-contacts">
+                        <h4>Management Contacts:</h4>
+                        <p>Mr Kumar — Managing Director</p>
+                        <p>Ms C Sharon E — Sales & Marketing Manager</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" />
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company Name</label>
+                            <input type="text" id="company" name="company" />
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <input type="text" id="subject" name="subject" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Innovo<span>Group</span></div>
+                <div class="copyright">
+                    &copy; 2026 Innovo Group. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

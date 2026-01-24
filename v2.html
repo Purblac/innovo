@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovo Group - Corporate Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+         :root {
+            --primary: #f59e0b;
+            --primary-dark: #d97706;
+            --slate-50: #f8fafc;
+            --slate-100: #f1f5f9;
+            --slate-200: #e2e8f0;
+            --slate-300: #cbd5e1;
+            --slate-400: #94a3b8;
+            --slate-500: #64748b;
+            --slate-600: #475569;
+            --slate-700: #334155;
+            --slate-800: #1e293b;
+            --slate-900: #0f172a;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--slate-700);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        /* Navigation */
+        
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .nav.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: -0.02em;
+            transition: color 0.3s;
+        }
+        
+        .nav.scrolled .logo-text {
+            color: var(--slate-900);
+        }
+        
+        .logo-badge {
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .nav-link {
+            padding: 0.6rem 1.25rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            border-radius: 100px;
+            transition: all 0.3s;
+        }
+        
+        .nav.scrolled .nav-link {
+            color: var(--slate-600);
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary);
+            background: rgba(245, 158, 11, 0.1);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .nav.scrolled .mobile-menu-btn {
+            color: var(--slate-900);
+        }
+        /* Hero Section */
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--slate-900) 0%, var(--slate-800) 50%, var(--slate-900) 100%);
+        }
+        
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920') center/cover;
+            opacity: 0.15;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, var(--slate-900), transparent, rgba(15, 23, 42, 0.5));
+        }
+        
+        .hero-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        .hero-orb-1 {
+            top: 25%;
+            left: 25%;
+            width: 400px;
+            height: 400px;
+            background: rgba(245, 158, 11, 0.2);
+        }
+        
+        .hero-orb-2 {
+            bottom: 25%;
+            right: 25%;
+            width: 400px;
+            height: 400px;
+            background: rgba(59, 130, 246, 0.1);
+            animation-delay: 1s;
+        }
+        
+        @keyframes pulse {
+            0%,
+            100% {
+                opacity: 0.6;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.05);
+            }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 2rem;
+            max-width: 900px;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 100px;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero-badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        .hero-badge-text {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            letter-spacing: 0.05em;
+        }
+        
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+        
+        .hero-title span {
+            display: block;
+            color: var(--primary);
+        }
+        
+        .hero-description {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 100px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: var(--slate-900);
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(245, 158, 11, 0.3);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            animation: fadeIn 1s ease-out 1.5s both;
+        }
+        
+        .scroll-text {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+        
+        .scroll-icon {
+            animation: bounce 2s infinite;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        @keyframes bounce {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(10px);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        /* Sections Common */
+        
+        section {
+            padding: 8rem 2rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            color: var(--slate-900);
+            letter-spacing: -0.02em;
+        }
+        
+        .section-title.light {
+            color: white;
+        }
+        
+        .section-description {
+            color: var(--slate-600);
+            max-width: 600px;
+            margin: 1rem auto 0;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        /* About Section */
+        
+        .about {
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to left, rgba(251, 191, 36, 0.05), transparent);
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-content {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .about-content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .about-text {
+            color: var(--slate-600);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .stats-grid {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .stat-card {
+            background: var(--slate-50);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            flex: 1;
+            min-width: 120px;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--slate-500);
+            margin-top: 0.25rem;
+        }
+        
+        .about-image-container {
+            position: relative;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+        }
+        
+        .about-image-container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .about-image-bg {
+            position: absolute;
+            inset: -1rem;
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.3), rgba(251, 191, 36, 0.1));
+            border-radius: 1.5rem;
+            transform: rotate(3deg);
+        }
+        
+        .about-image {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 1.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .about-location-card {
+            position: absolute;
+            bottom: -1.5rem;
+            left: -1.5rem;
+            background: white;
+            padding: 1.25rem;
+            border-radius: 1rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .location-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(251, 191, 36, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+        }
+        
+        .location-text strong {
+            display: block;
+            color: var(--slate-900);
+        }
+        
+        .location-text span {
+            font-size: 0.875rem;
+            color: var(--slate-500);
+        }
+        /* Values Section */
+        
+        .values {
+            background: var(--slate-900);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .values::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920') center/cover;
+            opacity: 0.08;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+        
+        .value-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        
+        .value-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .value-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-8px);
+        }
+        
+        .value-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .value-card:hover .value-icon {
+            transform: scale(1.1);
+        }
+        
+        .value-icon.blue {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+        }
+        
+        .value-icon.green {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+        
+        .value-icon.amber {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+        
+        .value-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .value-description {
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.7;
+        }
+        
+        .goals-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .goals-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        .goal-item {
+            display: flex;
+            gap: 1.25rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .goal-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .goal-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(245, 158, 11, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+        
+        .goal-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+        
+        .goal-description {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.6;
+        }
+        /* Products Section */
+        
+        .products {
+            background: var(--slate-50);
+        }
+        
+        .products-layout {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+        }
+        
+        .product-tabs {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .product-tab {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: transparent;
+            border: none;
+            border-radius: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: left;
+        }
+        
+        .product-tab:hover {
+            background: rgba(255, 255, 255, 0.5);
+            transform: translateX(8px);
+        }
+        
+        .product-tab.active {
+            background: white;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+        
+        .product-tab-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: white;
+        }
+        
+        .product-tab-icon.green {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+        }
+        
+        .product-tab-icon.blue {
+            background: linear-gradient(135deg, #3b82f6, #4f46e5);
+        }
+        
+        .product-tab-icon.purple {
+            background: linear-gradient(135deg, #a855f7, #7c3aed);
+        }
+        
+        .product-tab-icon.amber {
+            background: linear-gradient(135deg, #f59e0b, #ea580c);
+        }
+        
+        .product-tab-content h3 {
+            font-weight: 700;
+            color: var(--slate-900);
+        }
+        
+        .product-tab-content p {
+            font-size: 0.875rem;
+            color: var(--slate-500);
+        }
+        
+        .product-tab.active .tab-arrow {
+            display: block;
+        }
+        
+        .tab-arrow {
+            display: none;
+            margin-left: auto;
+            color: var(--primary);
+        }
+        
+        .product-detail {
+            background: white;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+        
+        .product-detail-image {
+            position: relative;
+            height: 280px;
+            overflow: hidden;
+        }
+        
+        .product-detail-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .product-detail-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+        }
+        
+        .product-detail-title {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            z-index: 1;
+        }
+        
+        .product-detail-title h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .product-detail-title p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .product-detail-content {
+            padding: 2rem;
+        }
+        
+        .product-detail-content>p {
+            color: var(--slate-600);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .product-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .product-tag {
+            padding: 0.5rem 1rem;
+            background: var(--slate-100);
+            border-radius: 100px;
+            font-size: 0.875rem;
+            color: var(--slate-700);
+            font-weight: 500;
+        }
+        /* Contact Section */
+        
+        .contact {
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, var(--slate-50), transparent);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 2fr 3fr;
+            gap: 4rem;
+            position: relative;
+        }
+        
+        .contact-info {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .contact-info.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .contact-item {
+            display: flex;
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-item-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(251, 191, 36, 0.1);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+        
+        .contact-item-content h4 {
+            font-weight: 600;
+            color: var(--slate-900);
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-item-content p {
+            font-size: 0.9rem;
+            color: var(--slate-600);
+            line-height: 1.6;
+        }
+        
+        .team-section h4 {
+            font-weight: 600;
+            color: var(--slate-900);
+            margin-bottom: 1rem;
+        }
+        
+        .team-member {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--slate-50);
+            border-radius: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .team-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+        }
+        
+        .team-avatar.amber {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+        }
+        
+        .team-avatar.blue {
+            background: linear-gradient(135deg, #60a5fa, #3b82f6);
+        }
+        
+        .team-info strong {
+            display: block;
+            color: var(--slate-900);
+            font-size: 0.95rem;
+        }
+        
+        .team-info span {
+            font-size: 0.8rem;
+            color: var(--slate-500);
+        }
+        
+        .contact-form-container {
+            background: var(--slate-50);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+        }
+        
+        .contact-form-container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--slate-700);
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 1px solid var(--slate-200);
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            font-family: inherit;
+            background: white;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+        }
+        
+        .form-group textarea {
+            resize: none;
+            min-height: 150px;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--slate-900);
+            color: white;
+            border: none;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background: var(--slate-800);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        
+        .success-message.show {
+            display: block;
+        }
+        
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(34, 197, 94, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #22c55e;
+            font-size: 2.5rem;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .success-message h3 {
+            font-size: 1.5rem;
+            color: var(--slate-900);
+            margin-bottom: 0.5rem;
+        }
+        
+        .success-message p {
+            color: var(--slate-600);
+        }
+        /* Footer */
+        
+        .footer {
+            background: var(--slate-900);
+            padding: 3rem 2rem;
+        }
+        
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .footer-logo-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .footer-copyright {
+            font-size: 0.875rem;
+            color: var(--slate-400);
+        }
+        /* Responsive */
+        
+        @media (max-width: 1024px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .about-image-container {
+                order: -1;
+            }
+            .about-image {
+                height: 400px;
+            }
+            .values-grid,
+            .goals-grid {
+                grid-template-columns: 1fr;
+            }
+            .products-layout {
+                grid-template-columns: 1fr;
+            }
+            .product-tabs {
+                flex-direction: row;
+                overflow-x: auto;
+                padding-bottom: 1rem;
+            }
+            .product-tab {
+                flex-shrink: 0;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            section {
+                padding: 5rem 1.5rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .hero-description {
+                font-size: 1rem;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                flex-direction: column;
+            }
+            .about-location-card {
+                position: relative;
+                bottom: 0;
+                left: 0;
+                margin-top: 1rem;
+            }
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        /* Mobile Menu */
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            padding: 6rem 2rem 2rem;
+        }
+        
+        .mobile-menu.open {
+            display: block;
+        }
+        
+        .mobile-menu-links {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .mobile-menu-link {
+            padding: 1.25rem 0;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: color 0.3s;
+        }
+        
+        .mobile-menu-link:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-text">INNOVO</span>
+                <span class="logo-badge">GROUP</span>
+            </div>
+            <div class="nav-links">
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#values" class="nav-link">Values</a>
+                <a href="#products" class="nav-link">Products</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" onclick="toggleMobileMenu()">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="mobile-menu-links">
+            <a href="#hero" class="mobile-menu-link" onclick="toggleMobileMenu()">Home</a>
+            <a href="#about" class="mobile-menu-link" onclick="toggleMobileMenu()">About</a>
+            <a href="#values" class="mobile-menu-link" onclick="toggleMobileMenu()">Values</a>
+            <a href="#products" class="mobile-menu-link" onclick="toggleMobileMenu()">Products</a>
+            <a href="#contact" class="mobile-menu-link" onclick="toggleMobileMenu()">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-orb hero-orb-1"></div>
+        <div class="hero-orb hero-orb-2"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                <span class="hero-badge-text">Established 2019</span>
+            </div>
+            <h1 class="hero-title">
+                INNOVO
+                <span>GROUP</span>
+            </h1>
+            <p class="hero-description">
+                We have created a vibrant company culture where ideas flourish and innovation drives excellence
+            </p>
+            <div class="hero-buttons">
+                <a href="#about" class="btn btn-primary">
+                    Discover More
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#contact" class="btn btn-outline">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span class="scroll-text">Scroll</span>
+            <i class="fas fa-chevron-down scroll-icon"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content" data-animate>
+                    <span class="section-label">Company Overview</span>
+                    <h2 class="section-title" style="text-align: left; margin-top: 1rem;">Who We Are?</h2>
+                    <p class="about-text" style="margin-top: 2rem;">
+                        Founded in 2019, Innovo Group started as an agricultural equipment and chemical supply company. Our team consists of dynamic and motivated professionals. We make fast and clear decisions based on our experience and market knowledge.
+                    </p>
+                    <p class="about-text">
+                        Our clients are industrial manufacturers and distributors primarily from Sarawak and Brunei. We serve various industries such as pharmaceutical, agricultural for the production of fertilisers, food manufacturing, preparation of lab grade chemicals and
+                        supply of lab instruments.
+                    </p>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">5+</div>
+                            <div class="stat-label">Years of Excellence</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">10+</div>
+                            <div class="stat-label">Industries Served</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">500+</div>
+                            <div class="stat-label">Satisfied Clients</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image-container" data-animate>
+                    <div class="about-image-bg"></div>
+                    <img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=800" alt="Innovo Group" class="about-image">
+                    <div class="about-location-card">
+                        <div class="location-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="location-text">
+                            <strong>Miri, Sarawak</strong>
+                            <span>Malaysia</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values" id="values">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Our Foundation</span>
+                <h2 class="section-title light">Corporate Values</h2>
+            </div>
+            <div class="values-grid">
+                <div class="value-card" data-animate data-delay="0">
+                    <div class="value-icon blue">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="value-title">Quality</h3>
+                    <p class="value-description">We aim to be a global brand that offers world-class, quality products at an affordable price to our clients.</p>
+                </div>
+                <div class="value-card" data-animate data-delay="150">
+                    <div class="value-icon green">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="value-title">Trustworthy</h3>
+                    <p class="value-description">We aim to make a trustworthy company that is recognised by society.</p>
+                </div>
+                <div class="value-card" data-animate data-delay="300">
+                    <div class="value-icon amber">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="value-title">Commitment</h3>
+                    <p class="value-description">We commit to achieving the best results for our clients by constantly striving to find better solutions.</p>
+                </div>
+            </div>
+
+            <div class="goals-header">
+                <span class="section-label">Our Vision</span>
+                <h3 class="section-title light" style="font-size: 2rem; margin-top: 1rem;">Corporate Goals</h3>
+            </div>
+            <div class="goals-grid">
+                <div class="goal-item" data-animate data-delay="0">
+                    <div class="goal-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div>
+                        <h4 class="goal-title">Understanding Customer Needs</h4>
+                        <p class="goal-description">Developing efficient strategies and identifying solutions through in-depth market research.</p>
+                    </div>
+                </div>
+                <div class="goal-item" data-animate data-delay="150">
+                    <div class="goal-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div>
+                        <h4 class="goal-title">CAN DO Attitude</h4>
+                        <p class="goal-description">Our dynamic approach to business is reflected in our CAN DO attitude towards challenges.</p>
+                    </div>
+                </div>
+                <div class="goal-item" data-animate data-delay="300">
+                    <div class="goal-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div>
+                        <h4 class="goal-title">Long Term Partnership</h4>
+                        <p class="goal-description">We place partnership with all our stakeholders at the heart of our activities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">What We Offer</span>
+                <h2 class="section-title">Products & Services</h2>
+                <p class="section-description">Top quality agricultural equipment, chemical supplies, lab instruments, and logistics services</p>
+            </div>
+            <div class="products-layout">
+                <div class="product-tabs">
+                    <button class="product-tab active" onclick="showProduct(0)">
+                        <div class="product-tab-icon green"><i class="fas fa-leaf"></i></div>
+                        <div class="product-tab-content">
+                            <h3>Agro</h3>
+                            <p>Agricultural Solutions</p>
+                        </div>
+                        <i class="fas fa-arrow-right tab-arrow"></i>
+                    </button>
+                    <button class="product-tab" onclick="showProduct(1)">
+                        <div class="product-tab-icon blue"><i class="fas fa-flask"></i></div>
+                        <div class="product-tab-content">
+                            <h3>Chemicals</h3>
+                            <p>Industrial Chemicals</p>
+                        </div>
+                        <i class="fas fa-arrow-right tab-arrow"></i>
+                    </button>
+                    <button class="product-tab" onclick="showProduct(2)">
+                        <div class="product-tab-icon purple"><i class="fas fa-microscope"></i></div>
+                        <div class="product-tab-content">
+                            <h3>Lab Instruments</h3>
+                            <p>Testing Equipment</p>
+                        </div>
+                        <i class="fas fa-arrow-right tab-arrow"></i>
+                    </button>
+                    <button class="product-tab" onclick="showProduct(3)">
+                        <div class="product-tab-icon amber"><i class="fas fa-truck"></i></div>
+                        <div class="product-tab-content">
+                            <h3>Logistics</h3>
+                            <p>Cross Border Services</p>
+                        </div>
+                        <i class="fas fa-arrow-right tab-arrow"></i>
+                    </button>
+                </div>
+                <div class="product-detail" id="productDetail">
+                    <!-- Content will be updated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Get In Touch</span>
+                <h2 class="section-title">Contact Us</h2>
+                <p class="section-description">Have a question or want to work with us? We'd love to hear from you.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info" data-animate>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-item-content">
+                            <h4>Our Location</h4>
+                            <p>No A-1-23A, Level 1, Block A,<br>Miri Times Square, ParkCity,<br>98000 Miri, Sarawak.</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-item-content">
+                            <h4>Phone Numbers</h4>
+                            <p>+6012 – 8774722 (Mr Kumar)<br>+6014 – 3745759 (Ms C Sharon E)</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-item-content">
+                            <h4>Email Address</h4>
+                            <p>innovo.gr.corp@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-container" data-animate>
+                    <form id="contactForm" onsubmit="handleSubmit(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Full Name *</label>
+                                <input type="text" placeholder="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address *</label>
+                                <input type="email" placeholder="john@example.com" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input type="text" placeholder="+60 12-345 6789">
+                            </div>
+                            <div class="form-group">
+                                <label>Subject *</label>
+                                <input type="text" placeholder="How can we help?" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Message *</label>
+                            <textarea placeholder="Tell us about your inquiry..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            Send Message
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                    <div class="success-message" id="successMessage">
+                        <div class="success-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <h3>Thank You!</h3>
+                        <p>Your message has been sent successfully.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <span class="footer-logo-text">INNOVO</span>
+                <span class="logo-badge">GROUP</span>
+            </div>
+            <div class="footer-copyright">
+                © 2026 Innovo Group. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Product data
+        const products = [{
+            title: 'Agro',
+            subtitle: 'Agricultural Solutions',
+            description: 'We provide agriculture materials for green house, fertigation setup and hydroponic equipment supplies.',
+            image: 'https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=800',
+            tags: ['Black Mesh Pot', 'Net Cup Basket', 'Valves', 'Agriculture Pump', 'HDPE Pipe', 'LDPE Pipe', 'Digital Timer', 'Pipe Clamp Filter Dripper']
+        }, {
+            title: 'Chemicals',
+            subtitle: 'Industrial & Specialty Chemicals',
+            description: 'Reliable and high quality chemicals for various industries including laboratory reagents, food & beverages, pharmaceuticals, water treatment, and more.',
+            image: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800',
+            tags: ['Laboratory Reagents', 'Food & Beverages', 'Agriculture Chemicals', 'Water Treatment', 'Pharmaceuticals', 'Electronic & Semiconductor', 'Metal Surface Treatment', 'Personal Care']
+        }, {
+            title: 'Lab Instruments',
+            subtitle: 'Testing & Measuring Equipment',
+            description: 'Comprehensive range of quality test and measuring instruments from leading global brands.',
+            image: 'https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800',
+            tags: ['Analytical Instruments', 'Testing Equipment', 'Measuring Devices', 'Laboratory Supplies', 'Quality Control Tools']
+        }, {
+            title: 'Logistics',
+            subtitle: 'Cross Border Services',
+            description: 'Cross border logistical services between East Malaysia and Brunei, specialising in industrial items and chemical goods.',
+            image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800',
+            tags: ['Kuching', 'Bintulu', 'Miri', 'Kota Kinabalu', 'Brunei']
+        }];
+
+        // Show product
+        function showProduct(index) {
+            const product = products[index];
+            const tabs = document.querySelectorAll('.product-tab');
+            tabs.forEach((tab, i) => {
+                tab.classList.toggle('active', i === index);
+            });
+
+            document.getElementById('productDetail').innerHTML = `
+                <div class="product-detail-image">
+                    <img src="${product.image}" alt="${product.title}">
+                    <div class="product-detail-title">
+                        <h3>${product.title}</h3>
+                        <p>${product.subtitle}</p>
+                    </div>
+                </div>
+                <div class="product-detail-content">
+                    <p>${product.description}</p>
+                    <div class="product-tags">
+                        ${product.tags.map(tag => `<span class="product-tag">${tag}</span>`).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Initialize first product
+        showProduct(0);
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('open');
+        }
+
+        // Scroll effects
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+
+            // Active nav link
+            const sections = ['hero', 'about', 'values', 'products', 'contact'];
+            const scrollPos = window.scrollY + 200;
+
+            sections.forEach(section => {
+                const el = document.getElementById(section);
+                if (el && scrollPos >= el.offsetTop && scrollPos < el.offsetTop + el.offsetHeight) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href') === '#' + section);
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.dataset.delay || 0;
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, delay);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '-50px' });
+
+        document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+
+        // Form submission
+        function handleSubmit(e) {
+            e.preventDefault();
+            const form = document.getElementById('contactForm');
+            const success = document.getElementById('successMessage');
+            
+            form.style.display = 'none';
+            success.classList.add('show');
+
+            setTimeout(() => {
+                form.style.display = 'block';
+                success.classList.remove('show');
+                form.reset();
+            }, 3000);
+        }
+    </script>
+</body>
+
+</html>
