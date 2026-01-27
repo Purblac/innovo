@@ -15,11 +15,11 @@ export async function onRequestPost({ request, env }) {
             body: JSON.stringify({
                 sender: {
                     name: "Website Contact",
-                    email: "no-reply@fernai.net",
+                    email: "no-reply@innovosynergy.com",
                 },
                 to: [{
-                    email: "contact@fernai.net",
-                    name: "FernAI Automation",
+                    email: "contact@innovosynergy.com",
+                    name: "Innovo Synergy Team",
                 }, ],
                 replyTo: {
                     email: email,

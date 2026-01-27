@@ -45,10 +45,10 @@ export async function onRequestPost(context) {
                 body: JSON.stringify({
                     sender: {
                         name: "Innovo Synergy Website",
-                        email: "noreply@innovosynergy.com"
+                        email: "no-reply@innovosynergy.com"
                     },
                     to: [{
-                        email: "innovo.gr.corp@gmail.com",
+                        email: "contact@innovosynergy.com",
                         name: "Innovo Synergy Team"
                     }],
                     subject: `New Contact Form: ${formData.subject}`,
