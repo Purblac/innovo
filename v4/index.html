@@ -1615,6 +1615,64 @@
             }, 3000);
         }
     </script>
+    <script>
+        // Unified invisible reCAPTCHA submit flow for the contact form
+        (function() {
+            const form = document.getElementById("contactForm");
+            if (!form) return;
+
+            // Store form reference so callback can access it after grecaptcha.execute()
+            window._fernaiForm = null;
+
+            form.addEventListener("submit", function(e) {
+                e.preventDefault();
+                window._fernaiForm = form;
+                if (typeof grecaptcha !== 'undefined') {
+                    grecaptcha.execute();
+                } else {
+                    alert('reCAPTCHA not loaded. Please try again later.');
+                }
+            });
+
+            // Called by Google reCAPTCHA when token is ready
+            window.onRecaptchaSuccess = async function(token) {
+                const f = window._fernaiForm || document.getElementById('contactForm');
+                if (!f) return;
+
+                const data = {
+                    name: f.name.value,
+                    email: f.email.value,
+                    business: f.business ? f.business.value : '',
+                    phone_number: f.phone ? f.phone.value : '',
+                    message: f.message.value,
+                    'g-recaptcha-response': token
+                };
+
+                try {
+                    const res = await fetch('/contact', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    if (res.ok) {
+                        // show success modal instead of alert
+                        window.showSuccessModal && window.showSuccessModal();
+                        f.reset();
+                        grecaptcha.reset();
+                    } else {
+                        alert('Failed to send message.');
+                        grecaptcha.reset();
+                    }
+                } catch (err) {
+                    alert('Failed to send message.');
+                    if (typeof grecaptcha !== 'undefined') grecaptcha.reset();
+                }
+            };
+        })();
+    </script>
 </body>
 
 </html>
