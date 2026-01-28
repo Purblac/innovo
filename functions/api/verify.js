@@ -4,7 +4,6 @@ export async function onRequestPost(context) {
 
     try {
         const { token, formData } = await request.json();
-        console.log(formData)
         const verifyResponse = await fetch(
             'https://challenges.cloudflare.com/turnstile/v0/siteverify', {
                 method: 'POST',
@@ -48,9 +47,14 @@ export async function onRequestPost(context) {
                         email: "no-reply@innovosynergy.com"
                     },
                     to: [{
-                        email: "contact@innovosynergy.com",
-                        name: "Innovo Synergy Team"
-                    }],
+                            email: "sharon.innovo.gr@gmail.com",
+                            name: "Sharon C"
+                        },
+                        {
+                            email: "innovo.gr.corp@gmail.com",
+                            name: "Innovo Synergy Corp"
+                        }
+                    ],
                     subject: `New Contact Form: ${formData.subject}`,
                     htmlContent: `
             <!DOCTYPE html>
